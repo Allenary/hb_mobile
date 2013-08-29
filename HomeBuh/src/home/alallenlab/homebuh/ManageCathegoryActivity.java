@@ -74,7 +74,7 @@ public class ManageCathegoryActivity extends ListActivity {
         case R.id.select_cathegory:
         	Intent intent = new Intent();
             intent.putExtra("exCathegoryName", cathegory.getCathegoryName());
-           // intent.putExtra();
+            intent.putExtra("exCathegoryId",cathegory.getId());
             setResult(RESULT_OK, intent);
             finish();
             return true;

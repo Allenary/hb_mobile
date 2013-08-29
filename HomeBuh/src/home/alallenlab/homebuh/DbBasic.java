@@ -13,7 +13,7 @@ public class DbBasic extends SQLiteOpenHelper{
 
 	public final static String  DB_NAME="test1.db";
 	public final static String FILE_DIR="HomeBuh";
-	public final static int  DB_VERSION=1;
+	public final static int  DB_VERSION=2;
 	public static final String COLUMN_ID = "_id";
 	public static final String COLUMN_CATHEGORY = "cathegory_name";
 	public static final String TABLE_CATHEGORY = "cathegory";
@@ -30,7 +30,7 @@ public class DbBasic extends SQLiteOpenHelper{
 		      + TOutTransaction.COLUN_ID_CATHEGORY+" integer, "
 		      + TOutTransaction.COLUMN_TITLE+" text not null, "
 		      + TOutTransaction.COLUMN_DESCRIPTION+" text, "
-		    //  + TOutTransaction.COLUMN_DATE_TRANSACTION
+		      + TOutTransaction.COLUMN_DATE_TRANSACTION+" integer, "
 		      + TOutTransaction.COLUMN_TOTAL_COUNT+" real);";
 	public static final String FULL_DB_PATH=Environment.getExternalStorageDirectory()
             + File.separator + FILE_DIR
@@ -44,7 +44,7 @@ public class DbBasic extends SQLiteOpenHelper{
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL(TABLE_CREATE_CATHEGORY);
 		db.execSQL(TABLE_CREATE_OUT_TRANSACTION);
-		
+		db.setVersion(DB_VERSION);
 	}
 
 	@Override
@@ -53,6 +53,7 @@ public class DbBasic extends SQLiteOpenHelper{
 		        "Upgrading database from version " + oldVersion + " to "
 		        + newVersion + ", which will destroy all old data");
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_CATHEGORY);
+		db.execSQL("DROP TABLE IF EXISTS " + TOutTransaction.TABLE_NAME);
 		onCreate(db);
 		
 	}

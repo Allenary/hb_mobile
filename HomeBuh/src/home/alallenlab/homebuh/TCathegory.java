@@ -4,7 +4,7 @@ public class TCathegory {
 	private long id;
 	private String cathegoryName;
 	
-	public Long getId(){
+	public long getId(){
 		return id;
 	}
 	
