@@ -1,6 +1,10 @@
 package home.alallenlab.homebuh;
 
 public class TCathegory {
+	/*
+	 * TODO:
+	 * add fields from DbBasic referred to this class
+	 */
 	private long id;
 	private String cathegoryName;
 	

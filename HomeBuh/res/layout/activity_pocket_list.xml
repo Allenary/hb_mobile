@@ -8,20 +8,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".PocketListActivity" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-
     <Button
         android:id="@+id/bOpenAddPocketView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/textView1"
         android:layout_marginRight="18dp"
         android:onClick="openAddPocketView"
         android:text="AddPocket" />
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/bOpenAddPocketView"
+        android:layout_below="@+id/bOpenAddPocketView" >
+
+    </ListView>
 
 </RelativeLayout>

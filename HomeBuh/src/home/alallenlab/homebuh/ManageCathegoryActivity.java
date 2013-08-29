@@ -36,6 +36,7 @@ public class ManageCathegoryActivity extends ListActivity {
         // elements in a ListView
         /*ArrayAdapter<String> */adapter = new ArrayAdapter<TCathegory>(this, android.R.layout.simple_list_item_1, values);
         setListAdapter(adapter);
+        
         registerForContextMenu(getListView());
     }
 

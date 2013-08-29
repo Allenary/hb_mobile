@@ -12,7 +12,10 @@ public class TPocket {
 	final static String  COLUMN_DESCRIPTION="description";
 	final static String  COLUMN_COUNT_MONEY="count_money";
 	final static String  COLUMN_IS_DEFAULT="is_default"; //0= non-default, 1=default
+	
 	final static String  TABLE_NAME="pocket";
+	
+	final static String[] allColumns={COLUMN_ID,COLUMN_NAME,COLUMN_DESCRIPTION,COLUMN_COUNT_MONEY,COLUMN_IS_DEFAULT};
 	
 	@Override
 	public String toString() {

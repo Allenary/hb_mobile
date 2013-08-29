@@ -1,17 +1,29 @@
 package home.alallenlab.homebuh;
 
+import java.util.List;
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
 
-public class PocketListActivity extends Activity {
+public class PocketListActivity extends ListActivity {
+	private TPocketDataSource datasource;
+	ArrayAdapter<TPocket> adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pocket_list);
+		datasource = new TPocketDataSource(this);
+        datasource.open();
+
+        List<TPocket> values = datasource.getAllPockets();
+        adapter = new ArrayAdapter<TPocket>(this, android.R.layout.simple_list_item_1, values);
+        setListAdapter(adapter);
 	}
 
 	@Override
