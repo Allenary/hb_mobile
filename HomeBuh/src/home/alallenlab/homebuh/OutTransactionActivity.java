@@ -9,6 +9,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -58,9 +59,23 @@ public class OutTransactionActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.out_transaction, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
-	}
+	} 
+	
+	public boolean onOptionsItemSelected(MenuItem item) {
+    	//TextView mess = (TextView) findViewById(R.id.textView1);
+    	switch (item.getItemId()) {
+        case R.id.mPockets:
+        //startActivity(new Intent(this, About.class));
+        Intent i = new Intent(this, PocketListActivity.class);
+        startActivity(i);
+        return true;
+        
+        default:
+        return super.onOptionsItemSelected(item);
+        }
+    }
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {

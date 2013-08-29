@@ -31,6 +31,7 @@ public final class R {
         public static final int btnAdd=0x7f080000;
         public static final int editText1=0x7f080002;
         public static final int lTitle=0x7f08000a;
+        public static final int mPockets=0x7f08000f;
         public static final int remove_cathegory=0x7f08000c;
         public static final int select_cathegory=0x7f08000d;
         public static final int tSelectedCathegory=0x7f080004;
@@ -48,9 +49,8 @@ public final class R {
     public static final class menu {
         public static final int cathegories_context_menu=0x7f070000;
         public static final int main=0x7f070001;
-        public static final int manage_cathegory_activity_t=0x7f070002;
-        public static final int out_transaction=0x7f070003;
-        public static final int pocket_list=0x7f070004;
+        public static final int out_transaction=0x7f070002;
+        public static final int pocket_list=0x7f070003;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
