@@ -6,5 +6,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_manage_cathegory_activity_t">ManageCathegoryActivityT</string>
     <string name="title_activity_pocket_list">PocketListActivity</string>
+    <string name="title_activity_add_pocket">AddPocketActivity</string>
 
 </resources>

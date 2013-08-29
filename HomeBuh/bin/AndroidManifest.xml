@@ -41,6 +41,10 @@
             android:name="home.alallenlab.homebuh.PocketListActivity"
             android:label="@string/title_activity_pocket_list" >
         </activity>
+        <activity
+            android:name="home.alallenlab.homebuh.AddPocketActivity"
+            android:label="@string/title_activity_add_pocket" >
+        </activity>
     </application>
 
 </manifest>

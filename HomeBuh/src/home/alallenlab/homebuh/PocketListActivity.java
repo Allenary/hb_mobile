@@ -2,7 +2,9 @@ package home.alallenlab.homebuh;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
 
 public class PocketListActivity extends Activity {
 
@@ -18,5 +20,9 @@ public class PocketListActivity extends Activity {
 		getMenuInflater().inflate(R.menu.pocket_list, menu);
 		return true;
 	}
+	 public void openAddPocketView(View view){
+		 Intent i = new Intent(this, AddPocketActivity.class);
+	     startActivity(i);
+	 }
 
 }
