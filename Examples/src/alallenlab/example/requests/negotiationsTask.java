@@ -7,6 +7,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -24,7 +25,10 @@ public class negotiationsTask extends AsyncTask<Void, Void, Void>{
 	        // Execute HTTP Post Request
 	        HttpResponse response = httpclient.execute(httppost);
 	        HttpEntity ent= response.getEntity();
-	        Log.d("POST OK",EntityUtils.toString(ent));
+	        String strJson=EntityUtils.toString(ent);
+	        JSONObject json = new JSONObject(strJson);
+	        int resultCode = json.getInt("result");
+	        Log.d("POST OK",Integer.toString(resultCode));
 	        
 	        	        	        
 	    } catch (Exception e) {
