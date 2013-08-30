@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".AddPocketActivity" >
+
+    <EditText
+        android:id="@+id/tPocketName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="18dp"
+        android:layout_toRightOf="@+id/lDescription"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/lDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tDescription"
+        android:layout_alignBottom="@+id/tDescription"
+        android:layout_alignParentLeft="true"
+        android:text="Description" />
+
+    <TextView
+        android:id="@+id/lPocketName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tPocketName"
+        android:layout_alignBottom="@+id/tPocketName"
+        android:layout_alignLeft="@+id/lDescription"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/lCountMoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/tCountMoney"
+        android:text="Money Amount" />
+
+    <EditText
+        android:id="@+id/tDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tCountMoney"
+        android:layout_below="@+id/tPocketName"
+        android:layout_marginTop="21dp"
+        android:ems="10"
+        android:inputType="textMultiLine" >
+
+        <requestFocus />
+    </EditText>
+
+    <CheckBox
+        android:id="@+id/chSetDefault"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lCountMoney"
+        android:layout_below="@+id/tCountMoney"
+        android:layout_marginTop="21dp"
+        android:text="Set as default pocket" />
+
+    <Button
+        android:id="@+id/bAddPocket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/tCountMoney"
+        android:layout_below="@+id/chSetDefault"
+        android:layout_marginRight="20dp"
+        android:onClick="addPocket"
+        android:text="Add pocket" />
+
+    <EditText
+        android:id="@+id/tCountMoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tDescription"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+</RelativeLayout>
