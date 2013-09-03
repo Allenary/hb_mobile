@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
+import alallenlab.example.requests.SignaturePreparation;
 
 public class MainActivity extends Activity {
 	
@@ -22,9 +23,9 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		try{
+		/*try{
 	    	new NegotiationsTask(this).execute();
-	    }catch(Exception e){Log.d("MAIN", e.toString());}
+	    }catch(Exception e){Log.d("MAIN", e.toString());}*/
 	   
 	}
 
@@ -44,6 +45,13 @@ public class MainActivity extends Activity {
 		        tv.setText("Net ok");
 		    }
 		    else tv.setText("no Net ");
+	}
+	public void  postData(View view){
+		try{
+	    	new NegotiationsTask(this).execute();
+	    }catch(Exception e){Log.d("MAIN", e.toString());}
+		
+		
 	}
 	
 

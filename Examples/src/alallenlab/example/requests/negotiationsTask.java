@@ -1,10 +1,17 @@
 package alallenlab.example.requests;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 //import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
@@ -16,6 +23,7 @@ import android.util.Log;
 public class NegotiationsTask extends AsyncTask<Void, Void, Void>{
 	private MainActivity answ;
 	private String responseResult;
+	private final String URL="http://hb.resscode.org.ua/api/package";
 	public NegotiationsTask(MainActivity answer){
 		this.answ=answer;
 	}
@@ -24,18 +32,23 @@ public class NegotiationsTask extends AsyncTask<Void, Void, Void>{
 	protected Void doInBackground(Void... params) {
 
 		HttpClient httpclient = new DefaultHttpClient();
-	    HttpPost httppost = new HttpPost("http://hb.resscode.org.ua/api/package");
+	    HttpPost httppost = new HttpPost(URL);
+	    
 
 	    try {
-	        
+	    	
+	    	httppost.setEntity(new UrlEncodedFormEntity(SignaturePreparation.getAllPostParams()));
+	    }
+	    catch(Exception e){Log.d("setEntity",e.toString());}
+	    try{
 	        // Execute HTTP Post Request
 	        HttpResponse response = httpclient.execute(httppost);
 	        HttpEntity ent= response.getEntity();
 	        String strJson=EntityUtils.toString(ent);
-	        JSONObject json = new JSONObject(strJson);
-	        int resultCode = json.getInt("result");
-	        responseResult= json.getString("result");
-	        Log.d("POST OK",Integer.toString(resultCode));
+	        //JSONObject json = new JSONObject(strJson);
+	        //int resultCode = json.getInt("result");
+	        //responseResult= json.getString("result");
+	        Log.d("POST OK",strJson);
 	        
 	        	        	        
 	    } catch (Exception e) {
