@@ -27,7 +27,7 @@ public class DbBasic extends SQLiteOpenHelper{
 			  + TOutTransaction.TABLE_NAME + "(" + TOutTransaction.COLUMN_ID
 		      + " integer primary key autoincrement, " 
 		      + TOutTransaction.COLUMN_ID_POCKET +" integer, "
-		      + TOutTransaction.COLUN_ID_CATHEGORY+" integer, "
+		      + TOutTransaction.COLUMN_ID_CATHEGORY+" integer, "
 		      + TOutTransaction.COLUMN_TITLE+" text not null, "
 		      + TOutTransaction.COLUMN_DESCRIPTION+" text, "
 		      + TOutTransaction.COLUMN_DATE_TRANSACTION+" integer, "

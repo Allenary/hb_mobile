@@ -31,7 +31,7 @@ public class TOutTransactionDataSource {
 	    values.put(TOutTransaction.COLUMN_DESCRIPTION, description);
 	    values.put(TOutTransaction.COLUMN_DATE_TRANSACTION, transactionDate);
 	    values.put(TOutTransaction.COLUMN_TOTAL_COUNT, totalCount);
-	    values.put(TOutTransaction.COLUN_ID_CATHEGORY,idCathegory);
+	    values.put(TOutTransaction.COLUMN_ID_CATHEGORY,idCathegory);
 	    
 	    long insertId = database.insert(TOutTransaction.TABLE_NAME, null,
 	        values);
