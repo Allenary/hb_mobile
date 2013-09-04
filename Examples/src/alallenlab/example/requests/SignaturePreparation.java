@@ -15,14 +15,18 @@ import android.util.Log;
 public class SignaturePreparation {
 	
 	private static String userSecretKey="T7SiPbidGSzTl{m2@@=:>{`s;[NIL5Op";
-	private static String blowfish = "7LiWkbRg9OZghj4TSAx5YgkcjZsEF5PJauCP6aeAf6yLRWQFegQrkXIzBxOYPn";
+	private static String blowfish = "7LiWkbRg9OZghj4TSAx5YgkcjZsEF5PJauCP6aeAf6yLRWQFegQrkXIzBxOYPneF";
+	private static String USER_ID="3";
 	
 	protected String getUserSecretKey() {
 		return userSecretKey;
 	}
 	
 	protected static String getAuthKey(String params){
-		return md5(blowfish+params+userSecretKey);
+		Log.d("Auth before md5",blowfish+params+userSecretKey);
+		String strMd5 = md5(blowfish+params+userSecretKey);
+		Log.d ("MD5 auth", strMd5);
+		return strMd5;
 	}
 	public static final String md5(final String s) {
 	    try {
@@ -62,7 +66,7 @@ public class SignaturePreparation {
 		String param = getSimpleJSON().toString();
 		
 		ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-        nameValuePairs.add(new BasicNameValuePair("userId", "userSecretKey"));
+        nameValuePairs.add(new BasicNameValuePair("userId", Integer.toString(3)));
         nameValuePairs.add(new BasicNameValuePair("authKey", getAuthKey(param)));
         nameValuePairs.add(new BasicNameValuePair("parameters", param));
 		
