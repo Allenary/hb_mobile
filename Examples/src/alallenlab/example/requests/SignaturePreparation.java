@@ -56,6 +56,8 @@ public class SignaturePreparation {
 		//SomeStuff stuff = new SomeStuff("MyStr",3);
 		try {
 			obj.put("stuff","some stuff");
+			obj.put("answerFormat", "json");
+			obj.put("compression", "none");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
