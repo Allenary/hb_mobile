@@ -1,18 +1,12 @@
 package alallenlab.example.requests;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-//import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
@@ -37,7 +31,7 @@ public class NegotiationsTask extends AsyncTask<Void, Void, Void>{
 
 	    try {
 	    	
-	    	httppost.setEntity(new UrlEncodedFormEntity(SignaturePreparation.getAllPostParams()));
+	    	httppost.setEntity(new UrlEncodedFormEntity(new SignaturePreparation(answ).getAllPostParams()));
 	    }
 	    catch(Exception e){Log.d("setEntity",e.toString());}
 	    try{
@@ -45,9 +39,8 @@ public class NegotiationsTask extends AsyncTask<Void, Void, Void>{
 	        HttpResponse response = httpclient.execute(httppost);
 	        HttpEntity ent= response.getEntity();
 	        String strJson=EntityUtils.toString(ent);
-	        //JSONObject json = new JSONObject(strJson);
-	        //int resultCode = json.getInt("result");
-	        //responseResult= json.getString("result");
+	        JSONObject json = new JSONObject(strJson);
+	        responseResult= json.getString("result");
 	        Log.d("POST OK",strJson);
 	        
 	        	        	        

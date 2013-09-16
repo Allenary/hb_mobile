@@ -3,13 +3,16 @@ package alallenlab.example.requests;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+//import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.content.Context;
+//import android.content.SharedPreferences;
+//import android.content.SharedPreferences.Editor;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
-import alallenlab.example.requests.SignaturePreparation;
+//import alallenlab.example.requests.SignaturePreparation;
 
 public class MainActivity extends Activity {
 	
@@ -23,9 +26,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		/*try{
-	    	new NegotiationsTask(this).execute();
-	    }catch(Exception e){Log.d("MAIN", e.toString());}*/
+		new MyPrefsTest(this).addAll();
 	   
 	}
 

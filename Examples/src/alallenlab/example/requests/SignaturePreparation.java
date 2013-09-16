@@ -2,27 +2,33 @@ package alallenlab.example.requests;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.List;
+//import java.util.List;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+//import android.content.SharedPreferences;
+//import android.preference.PreferenceManager;
 import android.util.Log;
-
+import android.content.Context;
 
 public class SignaturePreparation {
 	
-	private static String userSecretKey="T7SiPbidGSzTl{m2@@=:>{`s;[NIL5Op";
-	private static String blowfish = "7LiWkbRg9OZghj4TSAx5YgkcjZsEF5PJauCP6aeAf6yLRWQFegQrkXIzBxOYPneF";
-	private static String USER_ID="3";
+	//private static String userSecretKey="T7SiPbidGSzTl{m2@@=:>{`s;[NIL5Op";
+	//private static String blowfish = "7LiWkbRg9OZghj4TSAx5YgkcjZsEF5PJauCP6aeAf6yLRWQFegQrkXIzBxOYPneF";
+	//private static String USER_ID="3";
+	private MyPrefsTest myPrefs;
 	
-	protected String getUserSecretKey() {
-		return userSecretKey;
+	public SignaturePreparation(Context context){
+		myPrefs = new MyPrefsTest(context);
 	}
 	
-	protected static String getAuthKey(String params){
+
+	protected String getAuthKey(String params){
+		String blowfish=myPrefs.getBlowfish();
+		String userSecretKey = myPrefs.getUserSecretKey();
 		Log.d("Auth before md5",blowfish+params+userSecretKey);
 		String strMd5 = md5(blowfish+params+userSecretKey);
 		Log.d ("MD5 auth", strMd5);
@@ -53,7 +59,6 @@ public class SignaturePreparation {
 	}
 	public static JSONObject getSimpleJSON(){
 		JSONObject obj = new JSONObject();
-		//SomeStuff stuff = new SomeStuff("MyStr",3);
 		try {
 			obj.put("stuff","some stuff");
 			obj.put("answerFormat", "json");
@@ -64,11 +69,11 @@ public class SignaturePreparation {
 		}
 		return obj;
 	}
-	public static ArrayList<NameValuePair> getAllPostParams(){
+	public  ArrayList<NameValuePair> getAllPostParams(){
 		String param = getSimpleJSON().toString();
 		
 		ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-        nameValuePairs.add(new BasicNameValuePair("userId", Integer.toString(3)));
+        nameValuePairs.add(new BasicNameValuePair("userId", myPrefs.getUserId()));
         nameValuePairs.add(new BasicNameValuePair("authKey", getAuthKey(param)));
         nameValuePairs.add(new BasicNameValuePair("parameters", param));
 		
